@@ -16,6 +16,7 @@ mypy = "^0"
 ipython = "^7"
 pre-commit = "^2"
 black = "^20.8b1"
+radian = "^0.5.8"
 
 [tool.pytest.ini_options]
 addopts = """
