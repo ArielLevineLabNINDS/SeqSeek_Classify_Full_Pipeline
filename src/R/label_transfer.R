@@ -45,7 +45,7 @@ query <- AddMetaData(query, metadata = predictions)
 
 # Save queried results
 message("\tSaving coarse results...")
-coarse_type <- obj[["predicted.id"]]
+coarse_type <- query[["predicted.id"]]
 write.csv(
   coarse_type,
   file = paste0(out_path, "coarse_types.csv"),
