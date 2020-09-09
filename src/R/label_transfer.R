@@ -20,7 +20,7 @@ query <- readRDS("data/query.rds")
 message("\tQuery data:")
 print(query)
 
-Idents(reference) <- "coarse_clusters"
+Idents(reference) <- "final_coarse_clusters"
 
 message("\tLearning anchors...")
 anchors <- FindTransferAnchors(
@@ -37,7 +37,7 @@ anchors <- FindTransferAnchors(
 message("\tTransferring labels...")
 predictions <- TransferData(
   anchorset = anchors,
-  refdata = reference$coarse_clusters,
+  refdata = reference$final_coarse_clusters,
   weight.reduction = "pcaproject",
   dims = 1:28
 )
@@ -55,7 +55,7 @@ write.csv(
 # Save counts, features, and labels for Neural Network
 query_neural <- subset(
   query,
-  subset = predicted.id %in% c("Neuron", "Doublets", "Motoneuron")
+  subset = predicted.id %in% c("Neuron", "Doublets", "Motorneuron")
 )
 
 counts <- GetAssayData(query_neural, assay = "RNA", slot = "counts")
