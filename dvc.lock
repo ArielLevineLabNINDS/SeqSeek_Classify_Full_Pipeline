@@ -2,15 +2,15 @@ LT:
   cmd: Rscript src/R/label_transfer.R
   deps:
   - path: data/query.rds
-    md5: 7bba04586b03ea7b4532c2d29129ba0e
+    md5: bb7c701c67732c2f19a632aced55ec7b
   - path: data/reference.rds
     md5: ce069a759a01f3a18c57a36f6cf91f5d
   outs:
   - path: results/coarse_types.csv
-    md5: 2c175d7dbf0a5d9889859fde130919d1
+    md5: 67c11cbe3e6a9cbfc93a6ea33d7fd614
   - path: results/query_neural_cells.csv
-    md5: ee15bae6bebcbe3d8ea38315e8465def
+    md5: 7668daa3a266f20d56cfdf955c396ed9
   - path: results/query_neural_counts.mtx
-    md5: 54f76fcd07d98b9e853ac793fdc8b819
+    md5: d3cfd5011d2463415e146316f72ffb70
   - path: results/query_neural_features.csv
-    md5: a711280866565a238b220da9b2549472
+    md5: 8608c48df022b0cc18baf02f0e894a4e
