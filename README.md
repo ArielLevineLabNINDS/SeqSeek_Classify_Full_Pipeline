@@ -16,7 +16,7 @@ To make the pipeline as smooth as possible, this project uses Data Version Contr
 First, fetch the repository from github. To do so, run the following command:
 
 ```bash
-git clone https://www.github.com/FILLERPLEASECHANGE
+git clone https://www.github.com/ArielLevineLabNINDS/SeqSeek_Pipeline
 ```
 
 Once it's fetched, move into the directory:
@@ -35,10 +35,18 @@ The query object can be any dataset of spinal cord cells that you provide. Move 
 
 It's best practice to install dependencies for Python Projects within a virtual environment. There are many different methods for creating and managing virtual environments. If you already have a method that you use in your workflow, then please create and activate the virtual environment that way.
 
-If you don't have a preference, the following will create and activate a virtual environment:
+If you don't have a preference, the following will create and activate a virtual environment on MacOS or Linux:
 
 ```bash
-python3 -m venv
+python3 -m venv SeqSeek
+source SeqSeek/bin/activate
+```
+
+On a Windows system, it's a little different. In Windows, run the following:
+
+```bash
+python3 -m venv SeqSeek
+SeqSeek\\Scripts\\activate.bat
 ```
 
 Once the environment has been created and activated, install the necessary dependencies via `pip`, as below:
@@ -53,7 +61,7 @@ At this point, verify that installation has worked correctly by running the foll
 dvc --version
 ```
 
-The output should look like `1.6.6` - the exact number may vary, depending on the most up-to-date version. If you see anything else, or an error message, please let us know by filling an issue [HERE](FILLERPLEASECHANGE), and we will get back to you as soon as we can!
+The output should look like `1.6.6` - the exact number may vary, depending on the most up-to-date version. If you see anything else, or an error message, please let us know by filling an issue [HERE](https://github.com/ArielLevineLabNINDS/SeqSeek_Pipeline/issues), and we will get back to you as soon as we can!
 
 ### 4. Run the Pipeline
 
@@ -63,10 +71,6 @@ Thanks to DVC, running the pipeline is quite straight forward. Just use the belo
 dvc repro
 ```
 
-And everything should take care of itself. You'll see message printed along the way to let you know what steps you are on. The predicted labels will be stored as a csv in the `results` folder. There will be 2 columns: `cell` and `class`. The first contains the name of the cell taken from the Seurat object, and the second the predicted cell type.
+And everything should take care of itself. You'll see message printed along the way to let you know what steps you are on. The predicted labels will be stored as `results/final_cell_types.csv`. There will be 2 columns: `cell` and `class`. The first contains the name of the cell taken from the Seurat object, and the second the predicted cell type.
 
-If you run into any issues, please let us know [HERE](FILLERPLEASECHANGE).
-
-### 5. Advanced Usage
-
-Seurat's label transfer can be parallelised to increase performance. For safety, this pipeline defaults to using only one thread. However, users can change this by specifying a different value for the `threads` variable within the `params.yaml` file.
+If you run into any issues, please let us know [HERE](https://github.com/ArielLevineLabNINDS/SeqSeek_Pipeline/issues).
