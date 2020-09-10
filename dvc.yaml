@@ -4,6 +4,7 @@ stages:
     deps:
     - data/query.rds
     - data/reference.rds
+    - src/R/label_transfer.R
     outs:
     - results/coarse_types.csv
     - results/query_neural_cells.csv
