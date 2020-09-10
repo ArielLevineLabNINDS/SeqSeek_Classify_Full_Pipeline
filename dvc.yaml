@@ -1,0 +1,11 @@
+stages:
+  LT:
+    cmd: Rscript src/R/label_transfer.R
+    deps:
+    - data/query.rds
+    - data/reference.rds
+    outs:
+    - results/coarse_types.csv
+    - results/query_neural_cells.csv
+    - results/query_neural_counts.mtx
+    - results/query_neural_features.csv
