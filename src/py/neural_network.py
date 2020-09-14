@@ -10,9 +10,7 @@ print("Reading count matrix")
 counts = mmread("results/query_neural_counts.mtx")
 
 # Filter genes where n_counts < 1
-query_genes = (
-    pd.read_csv("results/query_neural_features.csv").loc[:, "x"].loc[:, "x"].to_numpy()
-)
+query_genes = pd.read_csv("results/query_neural_features.csv").loc[:, "x"].to_numpy()
 ref_genes = (
     pd.read_csv("models/filter_NN_genes.tsv", sep="\t", names=["x"])
     .loc[:, "x"]
