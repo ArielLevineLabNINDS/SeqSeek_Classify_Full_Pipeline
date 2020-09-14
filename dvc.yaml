@@ -20,3 +20,11 @@ stages:
     - src/py/neural_network.py
     outs:
     - results/neural_types.csv
+  Merge:
+    cmd: python src/py/merge_results.py
+    deps:
+    - results/coarse_types.csv
+    - results/neural_types.csv
+    - src/py/merge_results.py
+    outs:
+    - results/final_types.csv

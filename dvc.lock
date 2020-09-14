@@ -32,3 +32,15 @@ NN:
   outs:
   - path: results/neural_types.csv
     md5: 402c9f6bbcc5923b655b22cec112e487
+Merge:
+  cmd: python src/py/merge_results.py
+  deps:
+  - path: results/coarse_types.csv
+    md5: 67c11cbe3e6a9cbfc93a6ea33d7fd614
+  - path: results/neural_types.csv
+    md5: 402c9f6bbcc5923b655b22cec112e487
+  - path: src/py/merge_results.py
+    md5: c10c88f55ecd51c3277f19105609d538
+  outs:
+  - path: results/final_types.csv
+    md5: 777f1029a9854f827cb4850a8cb1ba11
