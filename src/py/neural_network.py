@@ -39,4 +39,4 @@ le = hf.init_label_encoder("models/dirty_neuron_encoder.npy")
 preds = le.inverse_transform(preds)
 
 # Finally, save results
-np.savetext("results/neural_types.csv", preds, delimiter=",")
+np.savetxt("results/neural_types.csv", preds, delimiter=",")
