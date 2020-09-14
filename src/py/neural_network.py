@@ -1,15 +1,26 @@
 # -*- coding: utf-8 -*-
 import helper_functions as hf
 import numpy as np
-import scipy.sparse as sparse
+import pandas as pd
 import tensorflow as tf
 from scipy.io import mmread
 
 # Read in the count matrix
 print("Reading count matrix")
 counts = mmread("results/query_neural_counts.mtx")
-if sparse.isspmatrix_coo(counts):
-    counts = counts.tocsr()
+
+# Filter genes where n_counts < 1
+query_genes = (
+    pd.read_csv("results/query_neural_features.csv").loc[:, "x"].loc[:, "x"].to_numpy()
+)
+ref_genes = (
+    pd.read_csv("models/filter_NN_genes.tsv", sep="\t", names=["x"])
+    .loc[:, "x"]
+    .to_numpy()
+)
+
+counts = counts.tocsc()[:, query_genes == ref_genes]
+counts = counts.tocsr()
 
 # Convert to tensor
 counts = hf.make_log_maxn_tensor(counts)
