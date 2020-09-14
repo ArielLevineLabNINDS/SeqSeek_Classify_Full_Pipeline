@@ -28,3 +28,10 @@ stages:
     - src/py/merge_results.py
     outs:
     - results/final_types.csv
+  Finalise:
+    cmd: Rscript src/R/results_to_seurat.R
+    deps:
+    - data/query.rds
+    - results/final_types.csv
+    outs:
+    - results/query.rds

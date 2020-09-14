@@ -44,3 +44,13 @@ Merge:
   outs:
   - path: results/final_types.csv
     md5: 777f1029a9854f827cb4850a8cb1ba11
+Finalise:
+  cmd: Rscript src/R/results_to_seurat.R
+  deps:
+  - path: data/query.rds
+    md5: bb7c701c67732c2f19a632aced55ec7b
+  - path: results/final_types.csv
+    md5: 777f1029a9854f827cb4850a8cb1ba11
+  outs:
+  - path: results/query.rds
+    md5: aa8a513ceea08a07db8509386ef31ff6
