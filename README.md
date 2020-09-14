@@ -29,7 +29,7 @@ cd SeqSeek_Pipeline && ls
 
 As the reference data object is fairly large, it cannot be stored directly on github. Please download it [HERE](FILLER PLEASE CHANGE) and more it into the `data` folder in this project. It should be named `data/reference.rds` or the pipeline will be unable to find it!
 
-The query object can be any dataset of spinal cord cells that you provide. Move it into the data folder as well, and make sure it is called, apropriately enough, `data/query.rds`.
+The query object can be any dataset of spinal cord cells that you provide. Move it into the data folder as well, and make sure it is called, apropriately enough, `data/query.rds`. Per the recommendations in the [Seurat vignette](https://satijalab.org/seurat/v3.0/integration.html), make sure your data has been normalised and variable features found, but not scaled!
 
 ### 3. Create a Python Virtual Environment
 
@@ -46,7 +46,7 @@ On a Windows system, it's a little different. In Windows, run the following:
 
 ```bash
 python3 -m venv SeqSeek
-SeqSeek\\Scripts\\activate.bat
+SeqSeek\Scripts\activate.bat
 ```
 
 Once the environment has been created and activated, install the necessary dependencies via `pip`, as below:
@@ -71,6 +71,6 @@ Thanks to DVC, running the pipeline is quite straight forward. Just use the belo
 dvc repro
 ```
 
-And everything should take care of itself. You'll see message printed along the way to let you know what steps you are on. The predicted labels will be stored as `results/final_cell_types.csv`. There will be 2 columns: `cell` and `class`. The first contains the name of the cell taken from the Seurat object, and the second the predicted cell type.
+And everything should take care of itself. You'll see message printed along the way to let you know what steps you are on. The predicted labels will be stored as `results/final_cell_types.csv`. There will be 2 columns: `cell` and `class`. The first contains the name of the cell taken from the Seurat object, and the second the predicted cell type. Also, this information will be added as a metadata column named "predicted.id" to the original Seurat object. This updated Seurat object will be saved at `results/query.rds` to prevent conflicts.
 
 If you run into any issues, please let us know [HERE](https://github.com/ArielLevineLabNINDS/SeqSeek_Pipeline/issues).
