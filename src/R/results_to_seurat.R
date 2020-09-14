@@ -13,4 +13,4 @@ Idents(obj) <- "predicted.id"
 head(Idents(obj))
 
 # And save!
-saveRDS(obj, "data/query.rds")
+saveRDS(obj, "results/query.rds")
