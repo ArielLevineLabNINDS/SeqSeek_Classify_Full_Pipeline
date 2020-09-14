@@ -5,6 +5,8 @@ LT:
     md5: bb7c701c67732c2f19a632aced55ec7b
   - path: data/reference.rds
     md5: ce069a759a01f3a18c57a36f6cf91f5d
+  - path: src/R/label_transfer.R
+    md5: 41eaaea488160cfaa82516748306d732
   outs:
   - path: results/coarse_types.csv
     md5: 67c11cbe3e6a9cbfc93a6ea33d7fd614
@@ -13,4 +15,4 @@ LT:
   - path: results/query_neural_counts.mtx
     md5: d3cfd5011d2463415e146316f72ffb70
   - path: results/query_neural_features.csv
-    md5: 8608c48df022b0cc18baf02f0e894a4e
+    md5: dede3168739b0eb21d70643ec80dfaae
