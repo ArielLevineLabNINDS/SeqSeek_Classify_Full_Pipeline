@@ -19,7 +19,9 @@ ref_genes = (
     .to_numpy()
 )
 
-counts = counts.tocsc()[:, query_genes == ref_genes]
+mask = np.isin(query_genes, ref_genes)
+
+counts = counts.tocsc()[:, mask]
 counts = counts.tocsr()
 
 # Convert to tensor
