@@ -62,14 +62,14 @@ counts <- GetAssayData(query_neural, assay = "RNA", slot = "counts")
 counts <- t(counts)
 writeMM(obj = counts, file = paste0(out_path, "query_neural_counts.mtx"))
 
-features <- rownames(query_neural)
+features <- rownames(query_neural$RNA)
 write.csv(
   features,
   file = paste0(out_path, "query_neural_features.csv"),
   row.names = F
 )
 
-cells <- colnames(query_neural)
+cells <- colnames(query_neural$RNA)
 write.csv(
   cells,
   file = paste0(out_path, "query_neural_cells.csv"),
