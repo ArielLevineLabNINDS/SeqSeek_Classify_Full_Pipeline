@@ -16,3 +16,19 @@ LT:
     md5: d3cfd5011d2463415e146316f72ffb70
   - path: results/query_neural_features.csv
     md5: dede3168739b0eb21d70643ec80dfaae
+NN:
+  cmd: python src/py/neural_network.py
+  deps:
+  - path: models
+    md5: 8cead6b5565c075330e3b9289fbd3741.dir
+  - path: results/query_neural_counts.mtx
+    md5: d3cfd5011d2463415e146316f72ffb70
+  - path: results/query_neural_features.csv
+    md5: dede3168739b0eb21d70643ec80dfaae
+  - path: src/py/helper_functions.py
+    md5: 5b6bb55d4121448178526e2b742ffe07
+  - path: src/py/neural_network.py
+    md5: efe612e84cc958974fcf75ea598c3638
+  outs:
+  - path: results/neural_types.csv
+    md5: 402c9f6bbcc5923b655b22cec112e487

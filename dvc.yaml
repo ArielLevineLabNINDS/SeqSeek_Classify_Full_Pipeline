@@ -10,3 +10,13 @@ stages:
     - results/query_neural_cells.csv
     - results/query_neural_counts.mtx
     - results/query_neural_features.csv
+  NN:
+    cmd: python src/py/neural_network.py
+    deps:
+    - models
+    - results/query_neural_counts.mtx
+    - results/query_neural_features.csv
+    - src/py/helper_functions.py
+    - src/py/neural_network.py
+    outs:
+    - results/neural_types.csv
