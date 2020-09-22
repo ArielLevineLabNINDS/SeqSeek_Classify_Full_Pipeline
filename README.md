@@ -1,6 +1,6 @@
 # The Seq-Seek Pipeline
 
-This repository provides the code for users to run the pipeline outline in [Daniel E. Russ<sup>1,\*</sup>, Ryan B. Patterson-Cross<sup>2,\*</sup>, et al., _biorXiv_, 2020](FILLER PLEASE CHANGE).
+This repository provides the code for users to run the pipeline outline in [Daniel E. Russ<sup>1,\*</sup>, Ryan B. Patterson-Cross<sup>2,\*</sup>, et al., _biorXiv_, 2020](https://www.biorxiv.org/content/10.1101/2020.09.03.241760v1.full).
 
 ## Usage
 
@@ -27,9 +27,20 @@ cd SeqSeek_Pipeline && ls
 
 ### 2. Get the Data
 
-As the reference data object is fairly large, it cannot be stored directly on github. Please download it [HERE](FILLER PLEASE CHANGE) and more it into the `data` folder in this project. It should be named `data/reference.rds` or the pipeline will be unable to find it!
+As the reference data object is fairly large, it cannot be stored directly on github. It's located on our [SeqSeek website](FILLERPLEASECHANGE). Don't let that bother you, though. The beauty of DVC is that it can run all kinds of steps as part of the pipeline, so the reference data will be automatically downloaded for you. Do note that, even after stripping out all un-essential information, it is still a large file at ~ 1.5 Gb.
 
 The query object can be any dataset of spinal cord cells that you provide. Move it into the data folder as well, and make sure it is called, apropriately enough, `data/query.rds`. Per the recommendations in the [Seurat vignette](https://satijalab.org/seurat/v3.0/integration.html), make sure your data has been normalised and variable features found, but not scaled!
+
+Currently, this pipeline requires that your query is aligned to the same genome as ours. The metadata from the genome is provide below:
+
+> mm10_10X_premrna_1 dna:chromosome chromosome:GRCm38:1:1:195471971:1 REF
+> !genome-build GRCm38.p4
+> !genome-version GRCm38
+> !genome-date 2012-01
+> !genome-build-accession NCBI:GCA_000001635.6
+> !genebuild-last-updated 2016-01
+
+Work is on-going to build in an adaptor that handles all genomes. Until then, please allign using the same genome!
 
 ### 3. Create a Python Virtual Environment
 
