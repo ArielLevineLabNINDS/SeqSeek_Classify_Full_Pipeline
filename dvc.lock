@@ -4,7 +4,7 @@ LT:
   - path: data/query.rds
     md5: bb7c701c67732c2f19a632aced55ec7b
   - path: data/reference.rds
-    md5: ce069a759a01f3a18c57a36f6cf91f5d
+    md5: da41922c1b27562f08355a79ffde3854
   - path: src/R/label_transfer.R
     md5: 41eaaea488160cfaa82516748306d732
   outs:
