@@ -1,4 +1,10 @@
 stages:
+  Download:
+    cmd: python src/py/download.py
+    deps:
+    - src/py/download.py
+    outs:
+    - data/reference.rds
   LT:
     cmd: Rscript src/R/label_transfer.R
     deps:
