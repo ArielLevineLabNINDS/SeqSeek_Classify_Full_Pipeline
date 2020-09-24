@@ -9,7 +9,9 @@ Broadly speaking, this pipeline has 2 steps:
 1. Use Label Transfer within Seurat to predict the coarse cell types present.
 2. Use a Neural Network built with Keras to predict the neural subtypes present.
 
-To make the pipeline as smooth as possible, this project uses Data Version Control, also known as [DVC](https://www.dvc.org) to run the steps automatically and handle the data processing. For more information on the instricacies of DVC, please see the above link to the project's website. To run the pipeline, please follow the steps below.
+To make the pipeline as smooth as possible, this project uses Data Version Control, also known as [DVC](https://www.dvc.org) to run the steps automatically and handle the data processing. For more information on the intricacies of DVC, please see the above link to the project's website. To run the pipeline, please follow the steps below.
+
+There are plans to automate the installation process - perhaps by expandingg the pipeline's capacity or using a Docker container. However, ensuring cross-platform compatibility isn't trivial, as the install steps vary from system to system. Work on this front is continuing. Until then, the below steps should get you up and running, regardles of your OS.
 
 ### 1. Get the code
 
@@ -24,6 +26,8 @@ Once it's fetched, move into the directory:
 ```bash
 cd SeqSeek_Pipeline && ls
 ```
+
+On Windows, be sure to use `dir` instead of `ls`.
 
 ### 2. Get the Data
 
@@ -69,17 +73,27 @@ pip install -r requirements.txt
 At this point, verify that installation has worked correctly by running the following command:
 
 ```bash
-dvc --version
+python3 -m dvc --version
 ```
 
 The output should look like `1.6.6` - the exact number may vary, depending on the most up-to-date version. If you see anything else, or an error message, please let us know by filling an issue [HERE](https://github.com/ArielLevineLabNINDS/SeqSeek_Pipeline/issues), and we will get back to you as soon as we can!
 
-### 4. Run the Pipeline
+### 4. Create a local renv library
+
+The (rough) equivalent of a virtual environment in R is a local libray created by the [renv package](https://rstudio.github.io/renv/articles/renv.html). This process is a little more straightforward, as it's OS indepedent. First, open an R terminal. This can be at the commandline or in an IDE, like RStudio. You will then see a message about `renv` being installed and packages being out of date. Don't worry! To bring everything up-to-date, simply run:
+
+```R
+renv::restore()
+```
+
+This will install all the necessary packages locally, keeping your global R nice and clean! Also, it's loaded automatically any time you run R, so no need to activate it!
+
+### 5. Run the Pipeline
 
 Thanks to DVC, running the pipeline is quite straight forward. Just use the below command:
 
 ```bash
-dvc repro
+python3 -m dvc repro
 ```
 
 And everything should take care of itself. You'll see message printed along the way to let you know what steps you are on. The predicted labels will be stored as `results/final_cell_types.csv`. There will be 2 columns: `cell` and `class`. The first contains the name of the cell taken from the Seurat object, and the second the predicted cell type. Also, this information will be added as a metadata column named "predicted.id" to the original Seurat object. This updated Seurat object will be saved at `results/query.rds` to prevent conflicts.
