@@ -1,7 +1,7 @@
 library(Matrix)
 library(Seurat)
 
-out_path <- "results/"
+out_path <- file.path("results")
 
 # Create if out_path doesn't exist
 if (!dir.exists(out_path)) {
@@ -13,10 +13,10 @@ if (!dir.exists(out_path)) {
 message("Coarse label transfer")
 message("\tReading data...")
 
-reference <- readRDS("data/reference.rds")
+reference <- readRDS(file.path("data", "reference.rds"))
 message("\tReference data:")
 print(reference)
-query <- readRDS("data/query.rds")
+query <- readRDS(file.path("data", "query.rds"))
 message("\tQuery data:")
 print(query)
 
@@ -48,7 +48,7 @@ message("\tSaving coarse results...")
 coarse_type <- query[["predicted.id"]]
 write.csv(
   coarse_type,
-  file = paste0(out_path, "coarse_types.csv"),
+  file = file.path(out_path, "coarse_types.csv"),
   row.names = T
 )
 
@@ -60,18 +60,18 @@ query_neural <- subset(
 
 counts <- GetAssayData(query_neural, assay = "RNA", slot = "counts")
 counts <- t(counts)
-writeMM(obj = counts, file = paste0(out_path, "query_neural_counts.mtx"))
+writeMM(obj = counts, file = file.path(out_path, "query_neural_counts.mtx"))
 
 features <- rownames(query_neural$RNA)
 write.csv(
   features,
-  file = paste0(out_path, "query_neural_features.csv"),
+  file = file.path(out_path, "query_neural_features.csv"),
   row.names = F
 )
 
 cells <- colnames(query_neural$RNA)
 write.csv(
   cells,
-  file = paste0(out_path, "query_neural_cells.csv"),
+  file = file.path(out_path, "query_neural_cells.csv"),
   row.names = F
 )
