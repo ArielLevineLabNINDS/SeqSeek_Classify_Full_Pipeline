@@ -8,6 +8,7 @@ data = Path("data")
 data.mkdir(parents=True, exist_ok=True)
 
 # Make request
+print("Requesting reference from website. This may take awhile...")
 url = "https://seqseek.ninds.nih.gov/data/classify/reference.rds"
 r = requests.get(url)
 
