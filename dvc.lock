@@ -54,3 +54,11 @@ Finalise:
   outs:
   - path: results/query.rds
     md5: aa8a513ceea08a07db8509386ef31ff6
+Download:
+  cmd: python src/py/download.py
+  deps:
+  - path: src/py/download.py
+    md5: 3bfa0f170073d4364fafda0d3cbf51e3
+  outs:
+  - path: data/reference.rds
+    md5: da41922c1b27562f08355a79ffde3854
