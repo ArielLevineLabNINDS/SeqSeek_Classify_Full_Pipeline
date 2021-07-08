@@ -1,4 +1,4 @@
-# The Seq-Seek Pipeline
+# The Seq-Seek Pipeline [![DOI](https://zenodo.org/badge/294421008.svg)](https://zenodo.org/badge/latestdoi/294421008)
 
 This repository provides the code for users to run the pipeline outline in [Daniel E. Russ<sup>1,\*</sup>, Ryan B. Patterson-Cross<sup>2,\*</sup>, et al., _biorXiv_, 2020](https://www.biorxiv.org/content/10.1101/2020.09.03.241760v1.full).
 
